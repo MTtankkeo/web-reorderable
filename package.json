@@ -5,9 +5,12 @@
   "repository": "https://github.com/MTtankkeo/web_reorderable",
   "homepage": "https://github.com/MTtankkeo/web_reorderable#readme",
   "bugs": "https://github.com/MTtankkeo/web_reorderable/issues",
-  "license": "MIT",
   "author": "Dev Ttangkong",
-  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w"
@@ -19,5 +22,12 @@
     "reorderable",
     "list",
     "grid"
-  ]
+  ],
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.19.0",
+    "rollup-cli": "^1.0.9",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "terser": "^5.31.3"
+  }
 }
