@@ -15,6 +15,8 @@
 
 Use web components to implement efficient and simple and flexible, soft reorderable list and grid.
 
+## Usage
+
 ```html
 <reorderable-list gap="5px">...</reorderable-list>
 ```
