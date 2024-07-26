@@ -1,0 +1,23 @@
+{
+  "name": "web-reorderable",
+  "version": "1.0.0",
+  "description": "Use web components to implement efficient and simple and flexible, soft reorderable list and grid.",
+  "repository": "https://github.com/MTtankkeo/web_reorderable",
+  "homepage": "https://github.com/MTtankkeo/web_reorderable#readme",
+  "bugs": "https://github.com/MTtankkeo/web_reorderable/issues",
+  "license": "MIT",
+  "author": "Dev Ttangkong",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  },
+  "keywords": [
+    "web",
+    "fontend",
+    "client-side",
+    "reorderable",
+    "list",
+    "grid"
+  ]
+}
