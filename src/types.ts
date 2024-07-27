@@ -12,3 +12,5 @@ export interface ReorderableContext {
     old: ReorderableState;
     new: ReorderableState;
 }
+
+export type ReorderableListener = (oldIndex: number, newIndex: number) => void;
