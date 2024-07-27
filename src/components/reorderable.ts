@@ -2,13 +2,14 @@ import { ReorderableContext, ReorderableItem, ReorderableListener, ReorderableSt
 
 type Item = ReorderableItem;
 type State = ReorderableState;
+type Context = ReorderableContext;
 
 export abstract class ReorderableElement extends HTMLElement {
     private _listeners: ReorderableListener[] = [];
 
     abstract onInit(): void;
     abstract onUpdateState(state: State): void;
-    abstract onUpdateContext(context: ReorderableContext): void;
+    abstract onUpdateContext(context: Context): void;
 
     set onChange(callback: ReorderableListener) {
         if (callback != null) {
