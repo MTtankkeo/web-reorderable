@@ -26,9 +26,9 @@ Use web components to implement efficient and simple and flexible, soft reordera
 ```
 
 ```html
-<reorderable-list rows="10">
+<reorderable-grid rows="10">
   <div key="uuid-1">...</div>
   <div key="uuid-2">...</div>
   <div key="uuid-3">...</div> <!-- ...children -->
-</reorderable-list>
+</reorderable-grid>
 ```
