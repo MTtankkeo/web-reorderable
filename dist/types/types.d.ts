@@ -13,7 +13,7 @@ export interface ReorderableContext {
     new: ReorderableState;
 }
 /**
- * Signature for the function that is notifying a results about reordered.
+ * Signature for the function that is notifying results about reordered.
  *
  * @param oldIndex the previous offset of items.
  * @param newIndex the current offset of items.
