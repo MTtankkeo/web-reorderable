@@ -19,9 +19,11 @@
     "web",
     "fontend",
     "client-side",
-    "reorderable",
     "list",
-    "grid"
+    "grid",
+    "reorderable",
+    "reorderable-list",
+    "reorderable-grid"
   ],
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
