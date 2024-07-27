@@ -1,2 +1,2 @@
-console.log("hello world");
+class e extends HTMLElement{}class n extends e{connectedCallback(){console.log("connected")}}customElements.define("reorderable-list",n);class l{}const t=new CSSStyleSheet;t.insertRule("\n    reorderable-list {\n        display: flex;\n        flex-direction: column;\n    }\n"),t.insertRule("\n    reorderable-grid {}\n"),document.adoptedStyleSheets=[t];export{e as ReorderableElement,l as ReorderableGridElement,n as ReorderableListElement};
 //# sourceMappingURL=index.esm.js.map
