@@ -10,11 +10,11 @@ export declare enum ReorderableStatus {
 export declare abstract class ReorderableElement extends HTMLElement {
     private _listeners;
     private _statusListeners;
-    /** Defined the current reorderable status. */
+    /** The value that is defining the current reorderable status. */
     private _status;
-    /** Returns the current reorderable status. */
+    /** Gets the current reorderable status. */
     get status(): ReorderableStatus;
-    /** Defines the current reorderable status to a given new status. */
+    /** Sets the current reorderable status to a given new status. */
     set status(newStatus: ReorderableStatus);
     abstract onInit(): void;
     abstract onUpdateState(state: State): void;

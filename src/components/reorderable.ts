@@ -14,15 +14,15 @@ export abstract class ReorderableElement extends HTMLElement {
     private _listeners: ReorderableListener[] = [];
     private _statusListeners: ReorderableStatusListener[] = [];
 
-    /** Defined the current reorderable status. */
+    /** The value that is defining the current reorderable status. */
     private _status: ReorderableStatus = ReorderableStatus.NONE;
 
-    /** Returns the current reorderable status. */
+    /** Gets the current reorderable status. */
     get status(): ReorderableStatus {
         return this._status;
     }
 
-    /** Defines the current reorderable status to a given new status. */
+    /** Sets the current reorderable status to a given new status. */
     set status(newStatus: ReorderableStatus) {
         if (this._status != newStatus) {
             this.notifyStatusListeners(this._status = newStatus);
