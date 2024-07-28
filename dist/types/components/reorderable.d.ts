@@ -2,6 +2,11 @@ import { ReorderableContext, ReorderableItem, ReorderableListener, ReorderableSt
 type Item = ReorderableItem;
 type State = ReorderableState;
 type Context = ReorderableContext;
+export declare enum ReorderableStatus {
+    NONE = 0,
+    REORDERING = 1,
+    REORDERED = 2
+}
 export declare abstract class ReorderableElement extends HTMLElement {
     private _listeners;
     abstract onInit(): void;

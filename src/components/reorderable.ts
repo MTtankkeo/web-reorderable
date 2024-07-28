@@ -4,6 +4,12 @@ type Item = ReorderableItem;
 type State = ReorderableState;
 type Context = ReorderableContext;
 
+export enum ReorderableStatus {
+    NONE,
+    REORDERING,
+    REORDERED
+}
+
 export abstract class ReorderableElement extends HTMLElement {
     private _listeners: ReorderableListener[] = [];
 

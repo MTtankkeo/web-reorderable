@@ -1,3 +1,4 @@
+import { ReorderableStatus } from "./components/reorderable";
 
 /** Signature for the interface that is defining the info of reorderable items. */
 export interface ReorderableItem<Key = string> {
@@ -24,3 +25,11 @@ export interface ReorderableContext {
  * @param offset the move count(to be given an integer) of reordered item.
  */
 export type ReorderableListener = (oldIndex: number, newIndex: number, offset: number) => void;
+
+/**
+ * Signature for the function that is notifying the updated new status
+ * about reorderable elements.
+ * 
+ * @param status new status of reorderable.
+ */
+export type ReorderableStatusListener = (status: ReorderableStatus) => void;
