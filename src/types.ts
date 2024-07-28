@@ -12,9 +12,9 @@ export interface ReorderableState<Key = string> {
 }
 
 /** Signature for the interface that is defining changes to the reoderable state. */
-export interface ReorderableContext {
-    old: ReorderableState;
-    new: ReorderableState;
+export interface ReorderableContext<T = undefined> {
+    old: ReorderableState<T>;
+    new: ReorderableState<T>;
 }
 
 /**
