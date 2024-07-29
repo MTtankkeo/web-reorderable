@@ -1,11 +1,11 @@
-import { ReorderableContext, ReorderableItem, ReorderableListener, ReorderableState, ReorderableStatusListener } from "../types";
+import { ReorderableItem, ReorderableContext, ReorderableListener, ReorderableState, ReorderableStatusListener } from "../types";
 type Item = ReorderableItem;
 type State = ReorderableState;
 type Context = ReorderableContext;
 export declare enum ReorderableStatus {
-    NONE = 0,
-    REORDERING = 1,
-    REORDERED = 2
+    NONE = "none",
+    REORDERING = "reordering",
+    REORDERED = "reordered"
 }
 export declare abstract class ReorderableElement extends HTMLElement {
     private _listeners;
@@ -16,7 +16,12 @@ export declare abstract class ReorderableElement extends HTMLElement {
     get status(): ReorderableStatus;
     /** Sets the current reorderable status to a given new status. */
     set status(newStatus: ReorderableStatus);
-    abstract onInit(): void;
+    /** The value that is defining the current reorderable state. */
+    private _state;
+    /** Gets the current reorderable state. */
+    get state(): State;
+    /** Sets the current reorderable state. */
+    set state(newState: State);
     abstract onUpdateState(state: State): void;
     abstract onUpdateContext(context: Context): void;
     set onChange(callback: ReorderableListener);
@@ -27,6 +32,9 @@ export declare abstract class ReorderableElement extends HTMLElement {
     protected notifyListeners(oldIndex: number, newIndex: number, offset: number): void;
     protected notifyStatusListeners(status: ReorderableStatus): void;
     createState(items: Item[]): State;
+    /** Called only once before the `this.onInitState()` is called. */
+    onInit(): void;
+    onInitState(state: State): void;
     connectedCallback(): void;
 }
 export {};

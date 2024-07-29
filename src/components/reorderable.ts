@@ -1,13 +1,14 @@
-import { ReorderableContext, ReorderableItem, ReorderableListener, ReorderableState, ReorderableStatusListener } from "../types";
+import { ReorderableItemState } from "../modules/reorderable_item_state";
+import { ReorderableItem, ReorderableContext, ReorderableListener, ReorderableState, ReorderableStatusListener } from "../types";
 
 type Item = ReorderableItem;
 type State = ReorderableState;
 type Context = ReorderableContext;
 
 export enum ReorderableStatus {
-    NONE,
-    REORDERING,
-    REORDERED
+    NONE = "none",
+    REORDERING = "reordering",
+    REORDERED = "reordered"
 }
 
 export abstract class ReorderableElement extends HTMLElement {
@@ -29,7 +30,19 @@ export abstract class ReorderableElement extends HTMLElement {
         }
     }
 
-    abstract onInit(): void;
+    /** The value that is defining the current reorderable state. */
+    private _state: State = null;
+
+    /** Gets the current reorderable state. */
+    get state(): State {
+        return this._state;
+    }
+
+    /** Sets the current reorderable state. */
+    set state(newState: State) {
+        this.onUpdateState(this._state = newState);
+    }
+
     abstract onUpdateState(state: State): void;
     abstract onUpdateContext(context: Context): void;
 
@@ -51,12 +64,12 @@ export abstract class ReorderableElement extends HTMLElement {
 
     addStatusListener(callback: ReorderableStatusListener) {
         console.assert(!this._statusListeners.includes(callback), "Already exists a given callback.");
-        this._listeners.push(callback);
+        this._statusListeners.push(callback);
     }
 
     removeStatusListener(callback: ReorderableStatusListener) {
         console.assert(this._statusListeners.includes(callback), "Already not exists a given callback.");
-        this._listeners.push(callback);
+        this._statusListeners.push(callback);
     }
 
     protected notifyListeners(oldIndex: number, newIndex: number, offset: number) {
@@ -68,7 +81,22 @@ export abstract class ReorderableElement extends HTMLElement {
     }
 
     createState(items: Item[]): State {
-        return {items};
+        return {items: items.map(i => new ReorderableItemState(i))};
+    }
+
+    /** Called only once before the `this.onInitState()` is called. */
+    onInit() { }
+
+    onInitState(state: State) {
+        for (const item of state.items) {
+            item.parent.element.addEventListener("pointerdown", () => {
+                console.log("pointer down");
+            });
+
+            item.parent.element.addEventListener("pointerup", () => {
+                console.log("pointer up");
+            });
+        }
     }
 
     connectedCallback() {
@@ -90,6 +118,6 @@ export abstract class ReorderableElement extends HTMLElement {
         }
 
         this.onInit();
-        this.onUpdateState(this.createState(items));
+        this.onInitState(this.state = this.createState(items));
     }
 }

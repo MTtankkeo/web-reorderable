@@ -1,3 +1,4 @@
+import { ReorderableItemState } from "./modules/reorderable_item_state";
 import { ReorderableStatus } from "./components/reorderable";
 
 /** Signature for the interface that is defining the info of reorderable items. */
@@ -8,7 +9,7 @@ export interface ReorderableItem<Key = string> {
 
 /** Signature for the interface that is defining the state of reorderable items. */
 export interface ReorderableState<Key = string> {
-    items: ReorderableItem<Key>[];
+    items: ReorderableItemState<Key>[];
 }
 
 /** Signature for the interface that is defining changes to the reoderable state. */
