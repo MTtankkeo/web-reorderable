@@ -1,7 +1,7 @@
 import { ReorderableElement } from "./reorderable";
 
 export class ReorderableDragElement extends HTMLElement {
-    target: ReorderableElement;   
+    target: ReorderableElement;
 
     connectedCallback() {
         this.onInit();
@@ -9,22 +9,13 @@ export class ReorderableDragElement extends HTMLElement {
     }
 
     onInit() {
-        let parent = this.parentElement;
-
-        // To check if a reorderable element exists in self ancestors.
-        while (parent) {
-            if (parent instanceof ReorderableElement) {
-                return this.target = parent;
-            }
-
-            parent = parent.parentElement;
+        if (!ReorderableElement.ancestorOf(this)) {
+            throw new Error("<reorderable-drag> must have a reorderable ancestor element.");
         }
-
-        throw new Error("<reorderable-drag> must have a reorderable ancestor element.");
     }
 
     onInitEvent() {
-
+        // TODO: ...
     }
 }
 

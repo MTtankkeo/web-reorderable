@@ -1,5 +1,3 @@
 
 // TODO: must be extending ReorderableElement.
-export class ReorderableGridElement {
-    
-}
+export class ReorderableGridElement { }

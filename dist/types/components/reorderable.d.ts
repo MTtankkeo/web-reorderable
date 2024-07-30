@@ -31,6 +31,11 @@ export declare abstract class ReorderableElement extends HTMLElement {
     removeStatusListener(callback: ReorderableStatusListener): void;
     protected notifyListeners(oldIndex: number, newIndex: number, offset: number): void;
     protected notifyStatusListeners(status: ReorderableStatus): void;
+    /**
+     * Gets a reorderable ancestor of a given element by traversing
+     * the tree in reverse order.
+     */
+    static ancestorOf(element: Element): ReorderableElement;
     createState(items: Item[]): State;
     /** Called only once before the `this.onInitState()` is called. */
     onInit(): void;

@@ -80,6 +80,23 @@ export abstract class ReorderableElement extends HTMLElement {
         this._statusListeners.forEach(l => l(status));
     }
 
+    /**
+     * Gets a reorderable ancestor of a given element by traversing
+     * the tree in reverse order.
+     */
+    static ancestorOf(element: Element): ReorderableElement {
+        let parent = element.parentElement;
+
+        // To check if a reorderable element exists in self ancestors.
+        while (parent) {
+            if (parent instanceof ReorderableElement) {
+                return parent;
+            }
+
+            parent = parent.parentElement;
+        }
+    }
+
     createState(items: Item[]): State {
         return {items: items.map(i => new ReorderableItemState(i))};
     }
