@@ -2,6 +2,10 @@ import { ReorderableElement } from "./reorderable";
 
 /** This element connects a number of reorderable list or grid elements. */
 export class ReorderableConnectionElement extends HTMLElement {
+    /**
+     * The values that is defining the current reorderable element
+     * that is connected in this connection element.
+     */
     connectedElements: ReorderableElement[] = [];
 
     /**
