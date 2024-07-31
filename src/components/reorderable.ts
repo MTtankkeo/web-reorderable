@@ -1,4 +1,4 @@
-import { ReorderableItemState } from "../modules/reorderable_item_state";
+import { ReorderableItemState, ReorderableItemStatus } from "../modules/reorderable_item_state";
 import { ReorderableItem, ReorderableContext, ReorderableListener, ReorderableState, ReorderableStatusListener } from "../types";
 
 type Item = ReorderableItem;
@@ -106,13 +106,23 @@ export abstract class ReorderableElement extends HTMLElement {
 
     onInitState(state: State) {
         for (const item of state.items) {
-            item.parent.element.addEventListener("pointerdown", () => {
-                console.log("pointer down");
+            const itemElement = item.parent.element;
+
+            itemElement.addEventListener("pointerdown", event => {
+                item.status = ReorderableItemStatus.READY;
+                item.registerPointerEvent(event);
             });
 
-            item.parent.element.addEventListener("pointerup", () => {
-                console.log("pointer up");
+            itemElement.addEventListener("pointermove", event => {
+                if (item.status == ReorderableItemStatus.READY
+                 || item.status == ReorderableItemStatus.ACTIVE) {
+                    item.status = ReorderableItemStatus.ACTIVE;
+                    item.registerPointerEvent(event)
+                }
             });
+
+            itemElement.addEventListener("pointerup", () => item.status = ReorderableItemStatus.NONE);
+            itemElement.addEventListener("pointercancel", () => item.status = ReorderableItemStatus.NONE);
         }
     }
 
