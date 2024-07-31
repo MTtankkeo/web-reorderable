@@ -33,3 +33,12 @@ Use web components to implement efficient and simple and flexible, soft reordera
   <div key="uuid-3">...</div> <!-- ...children -->
 </reorderable-grid>
 ```
+
+```html
+<reorderable-connection>
+  <div> <!-- The tree depth doesn't matter -->
+    <reorderable-list>...</reorderable-list>
+    <reorderable-list>...</reorderable-list>
+  </div>
+</reorderable-connection>
+```
