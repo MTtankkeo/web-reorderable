@@ -34,9 +34,10 @@ Use web components to implement efficient and simple and flexible, soft reordera
 </reorderable-grid>
 ```
 
+### How to connect reorderable list or grid elements to one another?
 ```html
 <reorderable-connection>
-  <div> <!-- The tree depth doesn't matter -->
+  <div> <!-- The tree depth doesn't matter. however, always an items key must be unique. -->
     <reorderable-list>...</reorderable-list>
     <reorderable-list>...</reorderable-list>
   </div>
