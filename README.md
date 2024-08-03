@@ -14,7 +14,7 @@
     </table>
 </div>
 
-Use web components to implement efficient and simple and flexible, soft reorderable list and grid.
+This package uses web components to implement efficient and simple and flexible, soft reorderable list and grid that is can be animation.
 
 ## Usage
 
