@@ -1,7 +1,7 @@
 {
   "name": "web-reorderable",
   "version": "1.0.0",
-  "description": "Use web components to implement efficient and simple and flexible, soft reorderable list and grid.",
+  "description": "This is package uses web components to implement efficient and simple and flexible, soft reorderable list and grid that is can be animation.",
   "repository": "https://github.com/MTtankkeo/web_reorderable",
   "homepage": "https://github.com/MTtankkeo/web_reorderable#readme",
   "bugs": "https://github.com/MTtankkeo/web_reorderable/issues",
