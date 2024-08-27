@@ -2,7 +2,7 @@
 > When using, keep in mind that this package is an alpha and development version.
 
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/3e99c297-7e0d-462f-86ce-5dced11024a6">
+    <img src="https://github.com/user-attachments/assets/f4197394-88db-4b8b-a7d7-78286eda3bd6">
     <h1>Web Reorderable</h1>
     <table>
         <thead>
